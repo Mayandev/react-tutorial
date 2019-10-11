@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSX</title>
+</head>
+<body>
+  
+  <div id="test1"></div>
+  <div id="test2"></div>
+
+  <script type="text/javascript" src="../build/react.development.js"></script>
+  <script type="text/javascript" src="../build/react-dom.development.js"></script>
+  <script type="text/javascript" src="../build/babel.min.js"></script>
+  <!-- 告诉babel.js解析jsx的代码 -->
+
+  <script type="text/javascript">
+    const jsx = 'With JSX';
+    const js = 'With JS';
+    const elementId = 'element';
+
+    // 1.创建虚拟DOM
+    const vDom1 = React.createElement('h2', {id: elementId.toLowerCase()}, js.toUpperCase())
+    // 2.渲染虚拟DOM
+    ReactDOM.render(vDom1, document.getElementById('test1'));
+  </script>
+
+  <script type="text/babel">
+    // 使用JSX语法来写
+    // 1.创建虚拟DOM
+    const vDom2 = <h2 id={elementId.toUpperCase()}>{jsx.toLowerCase()}</h2>
+    // 2.渲染虚拟DOM
+    ReactDOM.render(vDom2, document.getElementById('test2'));
+  </script>
+</body>
+</html>
